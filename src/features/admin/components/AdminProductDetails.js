@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { RadioGroup } from "@headlessui/react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProductByIdAsync, selectProductById } from "../productSlice";
-import { addToCartAsync, selectItems } from "../../../features/cart/cartSlice";
+import {
+  fetchProductByIdAsync,
+  selectProductById,
+} from "../../product/productSlice";
+import { addToCartAsync } from "../../cart/cartSlice";
 import { useParams } from "react-router-dom";
 import { discountedPrice } from "../../../app/constants";
-import { useAlert } from "react-alert";
-
 // TODO: In server data we will add colors, sizes , highlights. to each product
 
 const colors = [
@@ -39,31 +40,18 @@ function classNames(...classes) {
 
 // TODO : Loading UI
 
-export default function ProductDetail() {
+export default function AdminProductDetail() {
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [selectedSize, setSelectedSize] = useState(sizes[2]);
   const product = useSelector(selectProductById);
-  const items = useSelector(selectItems);
   const dispatch = useDispatch();
   const params = useParams();
-  const alert = useAlert();
-  console.log(items);
-  console.log(product);
 
   const handleCart = (e) => {
     e.preventDefault();
-    if (items.findIndex((item) => item.product.id === product.id) < 0) {
-      console.log({ items, product });
-      const newItem = {
-        product: product.id,
-        quantity: 1,
-      };
-      dispatch(addToCartAsync(newItem));
-      // TODO: it will be based on server response of backend
-      alert.success("Item added to Cart");
-    } else {
-      alert.error("Item Already added");
-    }
+    const newItem = { ...product, quantity: 1 };
+    delete newItem["id"];
+    dispatch(addToCartAsync({ ...product, quantity: 1 }));
   };
   useEffect(() => {
     dispatch(fetchProductByIdAsync(params.id));
@@ -158,6 +146,9 @@ export default function ProductDetail() {
             {/* Options */}
             <div className="mt-4 lg:row-span-3 lg:mt-0">
               <h2 className="sr-only">Product information</h2>
+              <p className="text-3xl tracking-tight text-gray-900">
+                ${product.price}
+              </p>
               <p className="text-3xl tracking-tight text-gray-900">
                 ${discountedPrice(product)}
               </p>
