@@ -5,7 +5,7 @@ function Home() {
   return (
     <div>
       <NavBar>
-        <ProductList></ProductList>
+        <ProductList />
       </NavBar>
     </div>
   );
