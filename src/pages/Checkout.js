@@ -30,6 +30,7 @@ function Checkout() {
   const totalItems = items.reduce((total, item) => item.quantity + total, 0);
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState("cash");
+
   const handleQuantity = (e, item) => {
     dispatch(updateItemAsync({ id: item.id, quantity: +e.target.value }));
   };

@@ -11,11 +11,7 @@ import {
 } from "../productSlice";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  StarIcon,
-} from "@heroicons/react/20/solid";
+import { StarIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 import {
   ChevronDownIcon,
@@ -110,12 +106,12 @@ export default function ProductList() {
   return (
     <div className="bg-white">
       <div>
-        {/* <MobileFilter
+        <MobileFilter
           handleFilter={handleFilter}
           mobileFiltersOpen={mobileFiltersOpen}
           setMobileFiltersOpen={setMobileFiltersOpen}
           filters={filters}
-        ></MobileFilter> */}
+        ></MobileFilter>
 
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">

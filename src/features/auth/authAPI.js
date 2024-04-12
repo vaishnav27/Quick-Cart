@@ -21,22 +21,22 @@ export function checkUser(loginInfo) {
       });
       if (response.ok) {
         const data = await response.json();
-        console.log({ data });
         resolve({ data });
       } else {
-        const err = await response.json();
-
-        reject({ err });
+        const error = await response.text();
+        reject(error);
       }
-    } catch (err) {
-      reject({ err });
+    } catch (error) {
+      reject(error);
     }
+
     // TODO: on server it will only return some info of user (not password)
   });
 }
 
 export function signOut(userId) {
   return new Promise(async (resolve) => {
+    // TODO: on server we will remove user session info
     resolve({ data: "success" });
   });
 }

@@ -91,9 +91,16 @@ export default function AdminProductList() {
     setPage(page);
   };
 
+  // useEffect(() => {
+  //   const pagination = { _page: page, _limit: ITEMS_PER_PAGE };
+  //   dispatch(fetchProductsByFiltersAsync({ filter, sort, pagination }));
+  // }, [dispatch, filter, sort, page]);
+
   useEffect(() => {
     const pagination = { _page: page, _limit: ITEMS_PER_PAGE };
-    dispatch(fetchProductsByFiltersAsync({ filter, sort, pagination }));
+    dispatch(
+      fetchProductsByFiltersAsync({ filter, sort, pagination, admin: true })
+    );
   }, [dispatch, filter, sort, page]);
 
   useEffect(() => {
