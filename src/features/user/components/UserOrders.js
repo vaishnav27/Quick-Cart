@@ -9,7 +9,7 @@ import {
 export default function UserOrders() {
   const dispatch = useDispatch();
   const orders = useSelector(selectUserOrders);
-  // console.log(orders);
+  console.log(orders);
 
   useEffect(() => {
     dispatch(fetchLoggedInUserOrderAsync());

@@ -53,7 +53,7 @@ export const orderSlice = createSlice({
       })
       .addCase(fetchAllOrdersAsync.fulfilled, (state, action) => {
         state.status = "idle";
-        state.orders = action.payload.orders;
+        state.orders = action.payload.order;
         state.totalOrders = action.payload.totalOrders;
       })
       .addCase(updateOrderAsync.pending, (state) => {

@@ -35,6 +35,7 @@ import AdminProductFormPage from "./pages/AdminProductFormPage";
 import AdminOrdersPage from "./pages/AdminOrdersPage";
 import { positions, Provider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
+import StripeCheckout from "./pages/StripeCheckout";
 
 const options = {
   timeout: 5000,
@@ -137,6 +138,14 @@ const router = createBrowserRouter([
   {
     path: "/logout",
     element: <LogOut />,
+  },
+  {
+    path: "/stripe-checkout/",
+    element: (
+      <Protected>
+        <StripeCheckout />,
+      </Protected>
+    ),
   },
   {
     path: "/forgot-password",
