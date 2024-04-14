@@ -266,7 +266,6 @@ function UserProfile() {
                     <form
                       noValidate
                       onSubmit={handleSubmit((data) => {
-                        // console.log(data);
                         handleEdit(data, index);
                         reset();
                       })}

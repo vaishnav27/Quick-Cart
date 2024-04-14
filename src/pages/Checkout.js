@@ -45,7 +45,6 @@ function Checkout() {
   } = useForm();
 
   const handleAddress = (e) => {
-    console.log(`index ${e.target.value}`);
     setSelectedAddress(user.addresses[e.target.value]);
   };
   const handlePayment = (e) => {
@@ -88,7 +87,6 @@ function Checkout() {
             <form
               noValidate
               onSubmit={handleSubmit((data) => {
-                console.log(data);
                 dispatch(
                   updateUserAsync({
                     ...user,

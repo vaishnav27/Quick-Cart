@@ -49,7 +49,7 @@ function NavBar({ children }) {
                           <img
                             className="h-8 w-8"
                             src="/logo.png"
-                            alt="Your Company"
+                            alt="QuickCart | Quick Store "
                           />
                         </Link>
                       </div>

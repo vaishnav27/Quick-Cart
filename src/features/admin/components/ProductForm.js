@@ -70,7 +70,6 @@ function ProductForm() {
           delete product["image1"];
           delete product["image2"];
           delete product["image3"];
-          console.log(product);
           product.price = +product.price;
           product.discountPercentage = +product.discountPercentage;
           product.stock = +product.stock;

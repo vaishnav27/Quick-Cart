@@ -22,7 +22,6 @@ export default function Cart() {
   const items = useSelector(selectItems);
   const [openModal, setOpenModal] = useState(null);
   const cartLoaded = useSelector(selectCartLoaded);
-  console.log({ items });
   const totalAmount = items.reduce(
     (amount, item) => discountedPrice(item.product) * item.quantity + amount,
     0

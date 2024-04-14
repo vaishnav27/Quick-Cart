@@ -8,10 +8,8 @@
 // }
 export function fetchProductById(id) {
   return new Promise(async (resolve) => {
-    //TODO: we will not hard-code server URL here
     const response = await fetch("/products/" + id);
     const data = await response.json();
-    // console.log(id);
     resolve({ data });
   });
 }
@@ -37,7 +35,6 @@ export function fetchProductsByFilters(filter, sort, pagination, admin) {
   for (let key in pagination) {
     queryString += `${key}=${pagination[key]}&`;
   }
-  // console.log(queryString);
   if (admin) {
     queryString += `admin=true`;
   }
@@ -48,8 +45,6 @@ export function fetchProductsByFilters(filter, sort, pagination, admin) {
     const data = await response.json();
     const totalItems = await response.headers.get("X-Total-Count");
     resolve({ data: { products: data, totalItems: +totalItems } });
-    // resolve({ data });
-    // console.log(totalItems);
   });
 }
 

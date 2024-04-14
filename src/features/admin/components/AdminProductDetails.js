@@ -9,7 +9,6 @@ import {
 import { addToCartAsync } from "../../cart/cartSlice";
 import { useParams } from "react-router-dom";
 import { discountedPrice } from "../../../app/constants";
-// TODO: In server data we will add colors, sizes , highlights. to each product
 
 const colors = [
   { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
@@ -37,8 +36,6 @@ const highlights = [
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-
-// TODO : Loading UI
 
 export default function AdminProductDetail() {
   const [selectedColor, setSelectedColor] = useState(colors[0]);

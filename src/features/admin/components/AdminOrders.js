@@ -17,9 +17,7 @@ function AdminOrders() {
   const totalOrders = useSelector(selectTotalOrders);
   const [editableOrderId, setEditableOrderId] = useState(-1);
 
-  const handleShow = (order) => {
-    console.log("SHOW");
-  };
+  const handleShow = (order) => {};
   const handleEdit = (order) => {
     setEditableOrderId(order.id);
   };
